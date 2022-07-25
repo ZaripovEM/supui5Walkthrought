@@ -1,0 +1,19 @@
+{
+  "name": "supui5walkthrought",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZaripovEM/supui5Walkthrought.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZaripovEM/supui5Walkthrought/issues"
+  },
+  "homepage": "https://github.com/ZaripovEM/supui5Walkthrought#readme"
+}
