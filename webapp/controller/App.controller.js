@@ -1,18 +1,40 @@
-sap.ui.define(
-	['sap/ui/core/mvc/Controller', 'sap/m/MessageToast'],
-	function (Controller, MessageToast) {
-		'use strict'
-		return Controller.extend('sap.ui.demo.walkthrough.controller.App', {
-			onShowHello: function () {
-				// read msg from i18n model
-				var oBundle = this.getView().getModel('i18n').getResourceBundle()
-				var sRecipient = this.getView()
-					.getModel()
-					.getProperty('/recipient/name')
-				var sMsg = oBundle.getText('helloMsg', [sRecipient])
-				// show message
-				MessageToast.show(sMsg)
-			},
-		})
-	}
-)
+;<mvc:View
+	controllerName='sap.ui.demo.walkthrough.controller.App'
+	xmlns='sap.m'
+	xmlns:mvc='sap.ui.core.mvc'
+	displayBlock='true'
+>
+	<App>
+		<pages>
+			<Page title='{i18n>homePageTitle}'>
+				<content>
+					<Panel headerText='{i18n>helloPanelTitle}'>
+						<content>
+							<Button text='{i18n>showHelloButtonText}' press='.onShowHello' />
+							<Input
+								value='{/recipient/name}'
+								description='Hello {/recipient/name}'
+								valueLiveUpdate='true'
+								width='60%'
+							/>
+						</content>
+						<footer>
+							<toolbar>
+								<ToolbarSpacer />
+								<Button
+									text='{i18n>showHelloButtonText}'
+									press='.onShowHello'
+								/>
+								<ToolbarSeparator />
+								<Button
+									text='{i18n>showHelloButtonText}'
+									press='.onShowHello'
+								/>
+							</toolbar>
+						</footer>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
