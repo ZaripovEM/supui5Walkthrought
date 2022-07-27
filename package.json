@@ -1,19 +1,15 @@
 {
-  "name": "supui5walkthrought",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZaripovEM/supui5Walkthrought.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ZaripovEM/supui5Walkthrought/issues"
-  },
-  "homepage": "https://github.com/ZaripovEM/supui5Walkthrought#readme"
+	"name": "sapui5Walkthrough",
+	"devDependencies": {
+		"@ui5/cli": "^2.11.1",
+		"@ui5/fs": "^2.0.6",
+		"@ui5/logger": "^2.0.1",
+		"@sap/ux-ui5-tooling": "1",
+		"rimraf": "3.0.2"
+	},
+	"ui5": {
+		"dependencies": [
+			"@sap/ux-ui5-tooling"
+		]
+	}
 }

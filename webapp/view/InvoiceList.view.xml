@@ -8,9 +8,12 @@
       class="sapUiResponsiveMargin"
       width="auto"
       items="{
-				path: 'invoice>/Invoices', 
-				filters:[{path:'Status', value1:'A', operator:'EQ'}]
-			}">
+			path : 'invoice>/Invoices',
+			sorter : {
+				path : 'ShipperName',
+				group : true
+			}
+		}">
 			<headerToolbar>
          <Toolbar>
             <Title text="{i18n>invoiceListTitle}"/>
