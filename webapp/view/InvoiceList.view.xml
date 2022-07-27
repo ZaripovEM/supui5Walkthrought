@@ -3,10 +3,21 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
    <List
+	 		id="invoiceList"
       headerText="{i18n>invoiceListTitle}"
       class="sapUiResponsiveMargin"
       width="auto"
-      items="{invoice>/Invoices}" >
+      items="{
+				path: 'invoice>/Invoices', 
+				filters:[{path:'Status', value1:'A', operator:'EQ'}]
+			}">
+			<headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField width="50%" search=".onFilterInvoices"/>
+         </Toolbar>
+      </headerToolbar>
       <items>
          <ObjectListItem
             title="{invoice>Quantity} x {invoice>ProductName}"
@@ -19,7 +30,19 @@
 						}"
 						numberUnit="{view>/currency}"
         		numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Information' : 'Warning' }"
-						intro="{= (${invoice>ExtendedPrice} * ${invoice>Quantity}).toFixed(2)}"/>
+						icon="{path: 'invoice>Icon'}" 
+						intro="{
+                    parts:[{path:'invoice>ExtendedPrice'},{path:'invoice>Quantity'}],
+                    formatter: '.formatter.fullPrice'
+            }">
+						<firstStatus>
+							<ObjectStatus 
+							text="{
+								path: 'invoice>Status',
+								formatter: '.formatter.statusText'}
+							"/>
+						</firstStatus>
+				</ObjectListItem>
       </items>
    </List>
 </mvc:View>
